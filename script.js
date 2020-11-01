@@ -18,3 +18,23 @@ var timeLeft = 30
 var results = document.querySelector("#results")
 var timer = document.querySelector("#timer")
 var doneQuiz = false
+
+function startTimer() {
+    timer.textContent = timeLeft
+    timeLeft--
+
+ 
+    if (timeLeft <= 0) {
+        clearInterval(setInterval)
+        for (var i = 0; i < 5; i++) {
+            questions[i].classList.add("hide")
+        }
+        results.classList.remove("hide")
+        timer.classList.add("hide")
+    }
+
+    if (doneQuiz) {
+        clearInterval(setInterval)
+        timer.classList.add("hide")
+    }
+}
